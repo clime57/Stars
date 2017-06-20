@@ -1,0 +1,374 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TyFw</name>
+    </assembly>
+    <members>
+        <member name="T:TyLogger">
+            <summary>
+            日志打印
+            </summary>
+        </member>
+        <member name="F:TyLogger._enable">
+            <summary>
+            控制是否要打印日志
+            </summary>
+        </member>
+        <member name="M:TyLogger.Log(System.Object)">
+            <summary>
+            打印日志
+            </summary>
+            <param name="message">日志内容</param>
+        </member>
+        <member name="M:TyLogger.Log(System.Object,UnityEngine.Object)">
+            <summary>
+            打印日志
+            </summary>
+            <param name="message">日志内容</param>
+            <param name="context">日志应用对象</param>
+        </member>
+        <member name="M:TyLogger.LogError(System.Object)">
+            <summary>
+            打印错误日志
+            </summary>
+            <param name="message">日志内容</param>
+        </member>
+        <member name="M:TyLogger.LogError(System.Object,UnityEngine.Object)">
+            <summary>
+            打印错误日志
+            </summary>
+            <param name="message">日志内容</param>
+            <param name="context">日志应用对象</param>
+        </member>
+        <member name="M:TyLogger.LogWarning(System.Object)">
+            <summary>
+            打印警告日志
+            </summary>
+            <param name="message">日志内容</param>
+        </member>
+        <member name="M:TyLogger.LogWarning(System.Object,UnityEngine.Object)">
+            <summary>
+            打印警告日志
+            </summary>
+            <param name="message">日志内容</param>
+            <param name="context">日志应用对象</param>
+        </member>
+        <member name="T:GameData">
+            <summary>
+            游戏数据
+            </summary>
+        </member>
+        <member name="T:GameDataBase">
+            <summary>
+            游戏数据基类
+            </summary>
+        </member>
+        <member name="T:GameDataBase.NotifyRefreshDelegate">
+            <summary>
+            通知数据变化委托
+            </summary>
+        </member>
+        <member name="T:GameDataBase.IterateDelegate">
+            <summary>
+            迭代委托
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="F:GameDataBase.notifyRefreshDelegate">
+            <summary>
+            可直接设置它的值来通知数据变化
+            </summary>
+        </member>
+        <member name="M:GameDataBase.find(System.UInt32)">
+            <summary>
+            查找功能
+            </summary>
+            <param name="index">无符号整形的索引</param>
+            <returns>返回查找到的对象</returns>
+        </member>
+        <member name="M:GameDataBase.find``1(System.UInt32)">
+            <summary>
+            泛型查找
+            </summary>
+            <typeparam name="T">类模板</typeparam>
+            <param name="index">以对象为索引</param>
+            <returns>返回类</returns>
+        </member>
+        <member name="M:GameDataBase.add(System.UInt32,System.Object)">
+            <summary>
+            添加元素
+            </summary>
+            <param name="index">索引</param>
+            <param name="obj">内容</param>
+            <returns>返回是否添加成功</returns>
+        </member>
+        <member name="M:GameDataBase.remove(System.UInt32)">
+            <summary>
+            移除元素
+            </summary>
+            <param name="index">无符号整形索引</param>
+            <returns>返回是否移除成功</returns>
+        </member>
+        <member name="M:GameDataBase.clear">
+            <summary>
+            清空所有数据
+            </summary>
+        </member>
+        <member name="M:GameDataBase.iterate(GameDataBase.IterateDelegate)">
+            <summary>
+            通过传入的方法迭代所有数据内容
+            </summary>
+            <param name="it">使用的迭代委托</param>
+        </member>
+        <member name="M:GameDataBase.notifyRefresh">
+            <summary>
+            通知刷新显示
+            注册方法 GameDataBase.notifyRefreshDelegate+=myFun
+            </summary>
+        </member>
+        <member name="M:GameDataBase.ResetWhenExitCurScene">
+            <summary>
+            退出当前场景数据重置
+            </summary>
+        </member>
+        <member name="M:GameDataBase.ResetWhenExitInstance">
+            <summary>
+            退出整个副本数据重置
+            </summary>
+        </member>
+        <member name="M:GameDataBase.ResetWhenBackToRoleSelect">
+            <summary>
+            返回角色选择数据重置
+            </summary>
+        </member>
+        <member name="M:GameDataBase.ResetWhenBackToLogin">
+            <summary>
+            返回登陆数据重置
+            </summary>
+        </member>
+        <member name="M:GameDataBase.regEvent">
+            <summary>
+            注册事件
+            </summary>
+        </member>
+        <member name="M:GameDataBase.removeEvent">
+            <summary>
+            取消事件
+            </summary>
+        </member>
+        <member name="M:GameDataBase.init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:GameDataBase.shutdown">
+            <summary>
+            关闭，不再使用时将由管理器自动调用
+            </summary>
+        </member>
+        <member name="T:GameDataList">
+            <summary>
+            游戏数据列表,使用哈希表来存放数据，如果数据不能用哈希表来存放，则不应选用
+            </summary>
+        </member>
+        <member name="F:GameDataList._gameDataList">
+            <summary>
+            存放游戏数据的列表
+            </summary>
+        </member>
+        <member name="M:GameDataList.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:GameDataList.find(System.UInt32)">
+            <summary>
+            查找功能
+            </summary>
+            <param name="index">无符号整形作为索引</param>
+            <returns>返回查找到的对象，没有找到则返回空</returns>
+        </member>
+        <member name="M:GameDataList.find``1(System.UInt32)">
+            <summary>
+            泛型查找
+            </summary>
+            <typeparam name="T">类模板</typeparam>
+            <param name="index">以对象为索引</param>
+            <returns>返回类</returns>
+        </member>
+        <member name="M:GameDataList.add(System.UInt32,System.Object)">
+            <summary>
+            添加元素
+            </summary>
+            <param name="index">索引</param>
+            <param name="obj">内容</param>
+            <returns>返回是否添加成功</returns>
+        </member>
+        <member name="M:GameDataList.remove(System.UInt32)">
+            <summary>
+            移除元素
+            </summary>
+            <param name="index">无符号整形索引</param>
+            <returns>返回是否移除成功</returns>
+        </member>
+        <member name="M:GameDataList.clear">
+            <summary>
+            清空所有数据
+            </summary>
+        </member>
+        <member name="M:GameDataList.iterate(GameDataBase.IterateDelegate)">
+            <summary>
+            通过传入的方法迭代所有数据内容
+            </summary>
+            <param name="it">使用的迭代委托</param>
+        </member>
+        <member name="T:GameDataManager">
+            <summary>
+            游戏数据管理类
+            </summary>
+        </member>
+        <member name="F:GameDataManager._manager">
+            <summary>
+            GameDataManager静态变量
+            </summary>
+        </member>
+        <member name="F:GameDataManager._gameDataSetList">
+            <summary>
+            存放游戏数据集列表
+            </summary>
+        </member>
+        <member name="M:GameDataManager.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:GameDataManager.getInstance">
+            <summary>
+            获得单件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameDataManager.addGameDataSet(System.Object)">
+            <summary>
+            加入某个数据集合,以gameDataSet的类型为键值
+            </summary>
+            <param name="gameDataSet">数据集合,可能是数据对象也可能是数据管理对象</param>
+            <returns>返回获取到的数据</returns>
+        </member>
+        <member name="M:GameDataManager.removeGameDataSet``1">
+            <summary>
+            移除某个类型数据集合
+            </summary>
+            <typeparam name="T">某数据集合类型</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:GameDataManager.findGameData``2(System.UInt32)">
+            <summary>
+            得到某个游戏数据对象,不适合大批量数据获取
+            </summary>
+            <typeparam name="T">数据列表类型</typeparam>
+            <typeparam name="T1">具体的数据的类型</typeparam>
+            <param name="index">数据索引</param>
+            <returns>返回具体的数据</returns>
+        </member>
+        <member name="M:GameDataManager.findGameDataSet``1">
+            <summary>
+            得到某个游戏数据对象集合
+            以这个对象本身的类型返回此游戏数据对象
+            </summary>
+            <typeparam name="T">数据对象</typeparam>
+            <returns>返回游戏数据集</returns>
+        </member>
+        <member name="M:GameDataManager.add``1(System.UInt32,System.Object)">
+            <summary>
+            添加数据，不适合大批量数据导入
+            </summary>
+            <typeparam name="T">数据集类型</typeparam>
+            <param name="index">索引</param>
+            <param name="obj">内容</param>
+            <returns>返回是否成功</returns>
+        </member>
+        <member name="M:GameDataManager.remove``1(System.UInt32)">
+            <summary>
+            移除数据,不适合大批量数据操作
+            </summary>
+            <typeparam name="T">数据集类型</typeparam>
+            <param name="index">无符号索引</param>
+            <returns>返回是否成功</returns>
+        </member>
+        <member name="M:GameDataManager.clear``1">
+            <summary>
+            清空数据
+            </summary>
+            <typeparam name="T">被清空的数据集类型</typeparam>
+        </member>
+        <member name="M:GameDataManager.ResetWhenExitCurScene">
+            <summary>
+            退出当前场景数据重置
+            </summary>
+        </member>
+        <member name="M:GameDataManager.ResetWhenExitInstance">
+            <summary>
+            退出整个副本数据重置
+            </summary>
+        </member>
+        <member name="M:GameDataManager.ResetWhenBackToRoleSelect">
+            <summary>
+            返回角色选择数据重置
+            </summary>
+        </member>
+        <member name="M:GameDataManager.ResetWhenBackToLogin">
+            <summary>
+            返回登陆数据重置
+            </summary>
+        </member>
+        <member name="T:GameSubSystem">
+            <summary>
+            游戏子系统基类
+            </summary>
+        </member>
+        <member name="M:GameSubSystem.update(System.Single)">
+            <summary>
+            更新
+            </summary>
+            <param name="deltaTime">从上一帧到此帧所经过时间</param>
+        </member>
+        <member name="M:GameSubSystem.lateUpdate(System.Single)">
+            <summary>
+            延迟更新
+            </summary>
+            <param name="deltaTime">从上一帧到此帧所经过时间</param>
+        </member>
+        <member name="M:GameSubSystem.fixUpdate(System.Single)">
+            <summary>
+            固定更新
+            </summary>
+            <param name="deltaTime">固定增量时间</param>
+        </member>
+        <member name="M:GameSubSystem.init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:GameSubSystem.shutdown">
+            <summary>
+            关闭，不再使用时将由管理器自动调用
+            </summary>
+        </member>
+        <member name="M:GameSubSystem.regEvent">
+            <summary>
+            注册事件
+            </summary>
+        </member>
+        <member name="M:GameSubSystem.removeEvent">
+            <summary>
+            取消事件
+            </summary>
+        </member>
+        <member name="M:GameSubSystem.resetWhenBackToLogin">
+            <summary>
+            返回登陆重置
+            </summary>
+        </member>
+    </members>
+</doc>

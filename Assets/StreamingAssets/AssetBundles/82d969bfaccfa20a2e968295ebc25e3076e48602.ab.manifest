@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 3025386365
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f9d6e7ae96c72f6b1a52a269b803b039
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1939946b25849fa06e575c3ba7a250f0
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4040bd638571b5142a66dcf3416a444c, type: 3}
+- Class: 135
+  Script: {instanceID: 0}
+Assets:
+- Assets/ThirdParty/ABSystem/Prefabs/Sphere.prefab
+Dependencies:
+- E:/unity3dPrj/Stars/Assets/StreamingAssets/AssetBundles/51cdbca68efcd567d7d28dd6606e4abfa5786705.ab

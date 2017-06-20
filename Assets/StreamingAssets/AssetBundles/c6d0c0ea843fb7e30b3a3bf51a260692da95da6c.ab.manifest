@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 3946662840
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2bfaab2f62f2e086f8adad6d6a9cacc5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c1642440719609290a7e09a50a7286f4
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/ThirdParty/ABSystem/Prefabs/S_IT000001.png
+Dependencies: []

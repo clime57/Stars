@@ -1,0 +1,3 @@
+<SampleExcelFile>
+  <IData id="1" intField="2" stringField="中文中文" boolField="false" floatField="" />
+</SampleExcelFile>

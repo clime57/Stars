@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 966475545
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 240c98e15b6c9900f564f5cc82a46b0f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0520077050483de6babb9bd310d40764
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/ThirdParty/ABSystem/Prefabs/Capsule.mat
+Dependencies:
+- E:/unity3dPrj/Stars/Assets/StreamingAssets/AssetBundles/c6d0c0ea843fb7e30b3a3bf51a260692da95da6c.ab

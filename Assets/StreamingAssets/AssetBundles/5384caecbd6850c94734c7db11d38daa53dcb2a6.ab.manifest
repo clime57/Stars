@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 2457624647
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c1e0030c91e3b48d19de469c9947d6c1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e1502cd60412092444e64b3c5edaa5ee
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+Assets:
+- Assets/ThirdParty/ABSystem/Prefabs/Plane.prefab
+Dependencies:
+- E:/unity3dPrj/Stars/Assets/StreamingAssets/AssetBundles/294a2f3bb327d3a75265535abb22920c9e1e095d.ab

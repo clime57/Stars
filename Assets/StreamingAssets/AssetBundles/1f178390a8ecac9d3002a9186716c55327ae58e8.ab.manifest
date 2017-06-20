@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 72739141
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5af5dd0c7222609c1d11f0bd86e03998
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d3af213b357b7ff22cd90fddb856dbe3
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4040bd638571b5142a66dcf3416a444c, type: 3}
+Assets:
+- Assets/ThirdParty/ABSystem/Prefabs/Cube.prefab
+Dependencies:
+- E:/unity3dPrj/Stars/Assets/StreamingAssets/AssetBundles/51cdbca68efcd567d7d28dd6606e4abfa5786705.ab
