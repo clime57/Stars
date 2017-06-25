@@ -3,7 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Tangzx.ABSystem
+namespace Stars
 {
     public class ABBuilder
     {

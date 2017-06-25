@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Tangzx.ABSystem
+namespace Stars
 {
     public class AssetBundleBuildConfig : ScriptableObject
     {

@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-namespace Tangzx.ABSystem
+namespace Stars
 {
     /// <summary>
     /// AB 打包及运行时路径解决器

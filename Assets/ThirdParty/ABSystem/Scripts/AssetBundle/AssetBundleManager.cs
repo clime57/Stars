@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace Tangzx.ABSystem
+namespace Stars
 {
     public enum LoadState
     {
@@ -190,27 +190,28 @@ namespace Tangzx.ABSystem
             return _depInfoReader.GetFullName(shortFileName);
         }
 
+        public AssetBundleInfo LoadSync(string path)
+        {
+            string newPath = path.Replace("/", "\\");
+#if _AB_MODE_
+            AssetBundleLoader loader = this.CreateLoader(HashUtil.Get(newPath.ToLower()) + ".ab", newPath);
+#else
+            AssetBundleLoader loader = this.CreateLoader(newPath);
+#endif
+            return LoadBundleSync(loader);
+        }
+
+
         /// <summary>
         /// 用默认优先级为0的值加载
         /// </summary>
         /// <param name="path">路径</param>
         /// <param name="handler">回调</param>
         /// <returns></returns>
-        public AssetBundleLoader Load(string path, LoadAssetCompleteHandler handler = null)
+        public AssetBundleLoader LoadAsync(string path, LoadAssetCompleteHandler handler = null)
         {
-            return Load(path, 0, handler);
+            return LoadAsync(path, 0, handler);
         }
-
-        public AssetBundleLoader LoadSync(string path)
-        {
-            string newPath = path.Replace("/", "\\");
-            AssetBundleLoader loader = this.CreateLoader(newPath);
-            loader.Start();
-            LoadBundle(loader);
-            return loader;
-        }
-
-
 
         /// <summary>
         /// 通过一个路径加载ab
@@ -219,7 +220,7 @@ namespace Tangzx.ABSystem
         /// <param name="prority">优先级</param>
         /// <param name="handler">回调</param>
         /// <returns></returns>
-        public AssetBundleLoader Load(string path, int prority, LoadAssetCompleteHandler handler = null)
+        public AssetBundleLoader LoadAsync(string path, int prority, LoadAssetCompleteHandler handler = null)
         {
             string newPath = path.Replace("/", "\\");
 #if _AB_MODE_
@@ -375,6 +376,11 @@ namespace Tangzx.ABSystem
                 loader.LoadBundle();
                 _requestRemain--;
             }
+        }
+
+        AssetBundleInfo LoadBundleSync(AssetBundleLoader loader)
+        {
+            return loader.LoadBundleSync();
         }
 
         internal void LoadError(AssetBundleLoader loader)

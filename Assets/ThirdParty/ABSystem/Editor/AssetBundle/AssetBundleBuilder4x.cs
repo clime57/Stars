@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Tangzx.ABSystem
+namespace Stars
 {
     public class AssetBundleBuilder4x : ABBuilder
     {

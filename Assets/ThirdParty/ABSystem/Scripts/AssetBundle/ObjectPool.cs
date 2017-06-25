@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Tangzx.ABSystem
+namespace Stars
 {
     /// <summary>
     /// 从UGUI源码中挪过来的

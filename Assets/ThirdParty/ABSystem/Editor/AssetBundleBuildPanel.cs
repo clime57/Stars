@@ -3,17 +3,19 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace Tangzx.ABSystem
+namespace Stars
 {
     public class AssetBundleBuildPanel : EditorWindow
     {
-        [MenuItem("ABSystem/Builder Panel")]
+        const string savePath = "Assets/ThirdParty/ABSystem/config.asset";
+
+        [MenuItem("AssetBundle/Builder Panel")]
         static void Open()
         {
-            GetWindow<AssetBundleBuildPanel>("ABSystem", true);
+            GetWindow<AssetBundleBuildPanel>("AssetBundle", true);
         }
 
-        [MenuItem("ABSystem/Build AssetBundles")]
+        [MenuItem("AssetBundle/Build AssetBundles")]
         static void BuildAssetBundles()
         {
             AssetBundleBuildConfig config = LoadAssetAtPath<AssetBundleBuildConfig>(savePath);
@@ -50,7 +52,7 @@ namespace Tangzx.ABSystem
 #endif
 		}
 
-        const string savePath = "Assets/ThirdParty/ABSystem/config.asset";
+
 
         private AssetBundleBuildConfig _config;
         private ReorderableList _list;

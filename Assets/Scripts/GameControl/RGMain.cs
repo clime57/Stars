@@ -26,7 +26,7 @@ public class RGMain : MonoBehaviour
         {
             channelsdk = gameObject.AddComponent<ChanelSDK>();
         }
-
+        DontDestroyOnLoad(this.gameObject);
         _main = this;
         if (gameType == "" || gameType == "Game")
         {
@@ -60,7 +60,7 @@ public class RGMain : MonoBehaviour
         game_.LateUpdate();
     }
 
-    static public RGMain getInstance()
+    static public RGMain Get()
     {
         return _main;
     }

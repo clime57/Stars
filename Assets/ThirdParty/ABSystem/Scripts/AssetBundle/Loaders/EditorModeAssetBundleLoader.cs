@@ -3,7 +3,7 @@
 #if AB_MODE
 using System.Collections;
 
-namespace Tangzx.ABSystem
+namespace Stars
 {
     /// <summary>
     /// 编辑器模式并启用AB_MODE下用的加载器
@@ -23,7 +23,7 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
-namespace Tangzx.ABSystem
+namespace Stars
 {
     /// <summary>
     /// 编辑器模式下用的加载器
@@ -57,7 +57,17 @@ namespace Tangzx.ABSystem
         IEnumerator LoadResource()
         {
             yield return new WaitForEndOfFrame();
+            load();
+        }
 
+        public override AssetBundleInfo LoadBundleSync()
+        {
+            load();
+            return bundleInfo;
+        }
+
+        void load()
+        {
             string newPath = AssetBundlePathResolver.instance.GetEditorModePath(bundleName);
             Object mainObject = AssetDatabase.LoadMainAssetAtPath(newPath);
             if (mainObject)

@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Tangzx.ABSystem
+namespace Stars
 {
     public enum AssetType
     {

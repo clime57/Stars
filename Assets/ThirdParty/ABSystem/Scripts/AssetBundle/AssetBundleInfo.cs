@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Tangzx.ABSystem
+namespace Stars
 {
     public class AssetBundleInfo
     {
