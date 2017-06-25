@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-     package="com.tiyou.runinggame"
+     package="com.clime.stars"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -19,6 +19,7 @@
         android:theme="@style/AppTheme"
         android:name="com.tiyou.runinggame"
          >
+      <!-- 
         <activity
             android:name="com.example.getsysteminfo.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -30,5 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-      
+        -->
+    </application>
 </manifest>

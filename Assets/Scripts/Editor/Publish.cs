@@ -1,20 +1,4 @@
-﻿#region HeadComments
-/* ========================================================================
-* Copyright (C) 2015 SinceMe
-* 
-* 作    者：Clime
-* 文件名称：Publish
-* 功    能：发布
-* 创建时间：2015/11/23 11:10:47
-* 版    本：V1.0.0
-*
-* 修改日志：修改者： 时间： 修改内容：
-* 
-* =========================================================================
-*/
-#endregion
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 using System.Xml;
 using System.Collections;

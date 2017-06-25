@@ -201,6 +201,17 @@ namespace Tangzx.ABSystem
             return Load(path, 0, handler);
         }
 
+        public AssetBundleLoader LoadSync(string path)
+        {
+            string newPath = path.Replace("/", "\\");
+            AssetBundleLoader loader = this.CreateLoader(newPath);
+            loader.Start();
+            LoadBundle(loader);
+            return loader;
+        }
+
+
+
         /// <summary>
         /// 通过一个路径加载ab
         /// </summary>
