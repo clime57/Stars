@@ -29,7 +29,6 @@ public class Waiting : UIWindow
         _time += Time.deltaTime;
         if (_time > 15.0f)
         {
-            //bean 上线版本 需要把这个去掉 用报错形式存在
             Debug.LogError("很抱歉在加载过程出现了一个错误!");
             AutoHideMsgBox.getInstance().show(RG_Utils.getLanguageString("CodeItem144"));
             hide();

@@ -16,7 +16,6 @@ public class UIModeSelect : MonoBehaviour
         }
         else
         {
-            //modify by bob   2016-2-2
             UIRoot uiroot = NGUITools.FindInParents<UIRoot>(this.gameObject);
             uiroot.scalingStyle = UIRoot.Scaling.Constrained;
             uiroot.manualHeight = 960;
@@ -37,15 +36,10 @@ public class UIModeSelect : MonoBehaviour
                 if (channelID != null)
                 {
                     TyLogger.Log("ChannelID = " + channelID.ToString());
-                    //如果不是一些特殊渠道
-                    if (channelID != "2070"//百度
-                        )
-                    {
-                        Screen.SetResolution(width, h, true);
-                        Debug.Log("SetReolution " + width + " " + h);
-                        _width = width;
-                        _height = h;
-                    }
+                    Screen.SetResolution(width, h, true);
+                    Debug.Log("SetReolution " + width + " " + h);
+                    _width = width;
+                    _height = h;
                 }
 			}
         }

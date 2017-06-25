@@ -48,20 +48,6 @@ public class SystemConfig : GameData
 		}
 	}
 	
-    //static public bool netPlayerShowSwich {
-    //    set {
-    //        netPlayerShowSwith_ = value;
-    //        if (_callbackNetPlayer != null)
-    //        {
-    //            _callbackNetPlayer();
-    //        }
-    //        PlayerPrefs.SetInt ("NetPlayerShowSwich",value?1:0);
-    //    }
-    //    get {
-    //        return netPlayerShowSwith_;
-    //    }
-    //}
-
     static public Renderquality renderquality
     {
         set
