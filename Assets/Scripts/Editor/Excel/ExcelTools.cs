@@ -41,7 +41,7 @@ public class ExcelTools : Editor
 
     private static System.Reflection.BindingFlags flag = System.Reflection.BindingFlags.Public | BindingFlags.Static | System.Reflection.BindingFlags.Instance;
 
-    [MenuItem("ConfigTools/全部导入")]
+    [MenuItem("GameTools/ConfigTools/全部导入")]
     static void BuildExcelCSFile()
     {
         ReadExcelFile();
@@ -133,7 +133,7 @@ public class ExcelTools : Editor
         }
     }
 
-    [MenuItem("ConfigTools/单个导入(选中)")]
+    [MenuItem("GameTools/ConfigTools/单个导入(选中)")]
     static void BuildPitchExcelCSFile()
     {
         var select = Selection.activeObject; 

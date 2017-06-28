@@ -8,10 +8,6 @@ using System;
 public enum WinBackgroundType{
     Normal,//2D背景，各模块自行管理
     Common,//通用3D背景
-    HeroList,//英雄界面3D背景
-    Arena,//竞技场3D背景
-    CallHero,   //召唤英灵界面
-    Chapter,//章节界面
     MianUI, //主界面
 }
 
@@ -51,7 +47,7 @@ public class UIWindow : UIObject
     /// <summary>
     /// 显示窗口
     /// </summary>
-    virtual public void show()
+    override public void show()
     {
         showTimeBegin();
         base.show();
@@ -76,7 +72,7 @@ public class UIWindow : UIObject
     }
 
 
-    virtual public void hide()
+    override public void hide()
     {
         base.hide();
         realHide();

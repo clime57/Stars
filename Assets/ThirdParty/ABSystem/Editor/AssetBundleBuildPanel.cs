@@ -9,13 +9,13 @@ namespace Stars
     {
         const string savePath = "Assets/ThirdParty/ABSystem/config.asset";
 
-        [MenuItem("AssetBundle/Builder Panel")]
+        [MenuItem("GameTools/AssetBundle/Builder Panel")]
         static void Open()
         {
             GetWindow<AssetBundleBuildPanel>("AssetBundle", true);
         }
 
-        [MenuItem("AssetBundle/Build AssetBundles")]
+        [MenuItem("GameTools/AssetBundle/Build AssetBundles")]
         static void BuildAssetBundles()
         {
             AssetBundleBuildConfig config = LoadAssetAtPath<AssetBundleBuildConfig>(savePath);

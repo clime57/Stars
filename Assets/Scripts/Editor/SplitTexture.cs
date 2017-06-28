@@ -8,7 +8,7 @@ public class SplitTexture : EditorWindow
 
 	private const int PaddingInEditor = 3;
 
-    [MenuItem("Window/SplitTexture")]
+    [MenuItem("GameTools/SplitTexture")]
 	public static void ShowWindow()
 	{
         EditorWindow.GetWindow(typeof(SplitTexture));

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using Stars;
 public enum UI_LAYER
 {
 	CHAR_NAME    = -50,
@@ -185,9 +185,10 @@ public class UIWindowManager : GameSubSystem
     //同步加载窗口
     public UIWindow loadWindowSync(string winName, string srcName, UI_LAYER layer, UI_TYPE ui_type)
     {
-        //UIWindow win = setWindow(winName, , layer, ui_type);
-        //return win;
-        return null;
+        AssetBundleInfo abInfo = AssetBundleManager.Instance.LoadSync(srcName);
+        GameObject go = GameObject.Instantiate(abInfo.mainObject) as GameObject;
+        UIWindow win = setWindow(winName,go , layer, ui_type);
+        return win;
     }
 
 	public void destroyWindow(string name){
