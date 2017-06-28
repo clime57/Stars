@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Collections;
-
-public enum GuideObjIndex
+namespace Stars
 {
-	
-}
+    public enum GuideObjIndex
+    {
 
-public enum GuideWindow{
-	Main = 1,
+    }
+
+    public enum GuideWindow
+    {
+        Main = 1,
+    }
+
 }

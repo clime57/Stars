@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using Stars;
 public class RGGameState : GameState
 {
 	public override string update(float d)

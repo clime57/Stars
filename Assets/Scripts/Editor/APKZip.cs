@@ -8,7 +8,7 @@ using ICSharpCode.SharpZipLib.Core;
 
 using System.IO;
 using System;
-
+using Stars;
 public class APKZip : MonoBehaviour
 {
     /// <summary>

@@ -1,30 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public class UIPanelParaSetting : MonoBehaviour
+namespace Stars
 {
-    public UIPanel _uiPanel;
-    public UIScrollView _uiScrollView;
-    const float panelSoftness_ = 6;
-    void Awake()
+    public class UIPanelParaSetting : MonoBehaviour
     {
-        if (_uiPanel != null && _uiScrollView != null)
+        public UIPanel _uiPanel;
+        public UIScrollView _uiScrollView;
+        const float panelSoftness_ = 6;
+        void Awake()
         {
-            float panelSoftness = panelSoftness_;
-            if (_uiScrollView.movement == UIScrollView.Movement.Horizontal)
+            if (_uiPanel != null && _uiScrollView != null)
             {
-                _uiPanel.clipSoftness = new Vector2(panelSoftness, 0);
-            }
-            else if (_uiScrollView.movement == UIScrollView.Movement.Vertical)
-            {
-                _uiPanel.clipSoftness = new Vector2(0,panelSoftness);
-            }
+                float panelSoftness = panelSoftness_;
+                if (_uiScrollView.movement == UIScrollView.Movement.Horizontal)
+                {
+                    _uiPanel.clipSoftness = new Vector2(panelSoftness, 0);
+                }
+                else if (_uiScrollView.movement == UIScrollView.Movement.Vertical)
+                {
+                    _uiPanel.clipSoftness = new Vector2(0, panelSoftness);
+                }
 
+            }
+            else
+            {
+                TyLogger.LogError("Can't fine UIPanel or UIScrollView");
+            }
+            Destroy(this);
         }
-        else
-        {
-            TyLogger.LogError("Can't fine UIPanel or UIScrollView");
-        }
-        Destroy(this);
     }
+
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using System.Reflection;
+using Stars;
 public class AssetInABInfo 
 {
     Assembly _assembly_CSharp = Assembly.Load("Assembly-CSharp");

@@ -1,30 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public enum Renderquality
+namespace Stars
 {
-    Low,
-    Normal,
-    High,
-    VeryHigh
-}
-
-public class Device : MonoBehaviour
-{
-    public static int CPUfreq_ = 0;
-    public static int ProcessMem = 0;
-    /// <summary>
-    /// 判断此种机型运行游戏内存是否吃紧
-    /// </summary>
-    public static bool _isMemoryNotMuch = false;
-
-    public static void collectInfo()
+    public enum Renderquality
     {
+        Low,
+        Normal,
+        High,
+        VeryHigh
+    }
+
+    public class Device : MonoBehaviour
+    {
+        public static int CPUfreq_ = 0;
+        public static int ProcessMem = 0;
+        /// <summary>
+        /// 判断此种机型运行游戏内存是否吃紧
+        /// </summary>
+        public static bool _isMemoryNotMuch = false;
+
+        public static void collectInfo()
+        {
 #if UNITY_IPHONE || UNITY_EDITOR
-        collectRenderInfo();
-        if(SystemConfig.renderquality == Renderquality.Low ){
-            _isMemoryNotMuch = true;
-        }
+            collectRenderInfo();
+            if (SystemConfig.renderquality == Renderquality.Low)
+            {
+                _isMemoryNotMuch = true;
+            }
 #elif UNITY_ANDROID && !UNITY_EDITOR
         RG_Utils.callAndroidJava("getMaxCpuFreq");
         string graphicsDeviceName = SystemInfo.graphicsDeviceName;
@@ -39,16 +41,16 @@ public class Device : MonoBehaviour
         }
         TyLogger.Log("graphicsDeviceName " + SystemInfo.graphicsDeviceName);
 #endif
-    }
-    static void collectRenderInfo()
-    {
-        setTextureQuality();
-        if (SystemConfig.isUserSetRenderQuality())
-        {
-            SystemConfig.setAnisotropicFilter();
-            return;
         }
-#if UNITY_IPHONE	
+        static void collectRenderInfo()
+        {
+            setTextureQuality();
+            if (SystemConfig.isUserSetRenderQuality())
+            {
+                SystemConfig.setAnisotropicFilter();
+                return;
+            }
+#if UNITY_IPHONE
 		iPhoneGeneration iosGen = iPhone.generation;
         if(iosGen == iPhoneGeneration.Unknown){
             SystemConfig.renderquality = Renderquality.VeryHigh;
@@ -151,84 +153,85 @@ public class Device : MonoBehaviour
         }
 
 
-#elif UNITY_ANDROID 
+#elif UNITY_ANDROID
 
         SystemConfig.renderquality = getAndroidDefaultRenderQuality();
         Debug.Log("Android Renderquality = " + SystemConfig.renderquality.ToString());
 #else
-        //return Renderquality.Normal;
-        SystemConfig.renderquality = Renderquality.Normal;
+            //return Renderquality.Normal;
+            SystemConfig.renderquality = Renderquality.Normal;
 #endif
-    }
+        }
 
 
 
-    static Renderquality getAndroidDefaultRenderQuality()
-    {
-        if (CPUfreq_ <= 1500000 || SystemInfo.systemMemorySize + SystemInfo.graphicsMemorySize <= 512 )
+        static Renderquality getAndroidDefaultRenderQuality()
         {
+            if (CPUfreq_ <= 1500000 || SystemInfo.systemMemorySize + SystemInfo.graphicsMemorySize <= 512)
+            {
+                return Renderquality.Low;
+            }
+            else if (CPUfreq_ <= 2000000)
+            {
+                return Renderquality.Normal;
+            }
+            else if (CPUfreq_ > 2000000)
+            {
+                return Renderquality.High;
+            }
             return Renderquality.Low;
+
         }
-        else if (CPUfreq_ <= 2000000)
-        {
-            return Renderquality.Normal;
-        }
-        else if (CPUfreq_ > 2000000)
-        {
-            return Renderquality.High;
-        }
-        return Renderquality.Low;
-        
-    }
 
 
-    public static Renderquality getRenderQualityLevle()
-    {
+        public static Renderquality getRenderQualityLevle()
+        {
 
 #if UNITY_EDITOR
-        return Renderquality.VeryHigh;
+            return Renderquality.VeryHigh;
 #endif
-        return SystemConfig.renderquality;
+            return SystemConfig.renderquality;
 
-    }
+        }
 
-    public void onGetMaxCpuFreq(string freq)
-    {
-        try
+        public void onGetMaxCpuFreq(string freq)
         {
-            CPUfreq_ = int.Parse(freq);
+            try
+            {
+                CPUfreq_ = int.Parse(freq);
+            }
+            catch
+            {
+                Debug.Log("cpu freq = " + freq);
+            }
+            //目前只收集cpu的信息
+            collectRenderInfo();
         }
-        catch
-        {
-            Debug.Log("cpu freq = " + freq);
-        }
-        //目前只收集cpu的信息
-        collectRenderInfo();
-    }
 
-    public void onGetMemory(string memory)
-    {
-        try
+        public void onGetMemory(string memory)
         {
-            ProcessMem = int.Parse(memory);
+            try
+            {
+                ProcessMem = int.Parse(memory);
+            }
+            catch
+            {
+                Debug.Log("RSSMemory_ = " + memory);
+            }
         }
-        catch
+        /// <summary>
+        /// 设置纹理质量
+        /// </summary>
+        public static void setTextureQuality()
         {
-            Debug.Log("RSSMemory_ = " + memory);
-        }
-    }
-    /// <summary>
-    /// 设置纹理质量
-    /// </summary>
-    public static void setTextureQuality()
-    {
-        if (SystemInfo.systemMemorySize + SystemInfo.graphicsMemorySize <= 1024)
-        {
-            QualitySettings.masterTextureLimit = 1;
-        }
-        else
-        {
-            QualitySettings.masterTextureLimit = 0;
+            if (SystemInfo.systemMemorySize + SystemInfo.graphicsMemorySize <= 1024)
+            {
+                QualitySettings.masterTextureLimit = 1;
+            }
+            else
+            {
+                QualitySettings.masterTextureLimit = 0;
+            }
         }
     }
 }

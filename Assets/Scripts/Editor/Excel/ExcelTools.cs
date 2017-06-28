@@ -241,6 +241,7 @@ public class ExcelTools : Editor
 
         StringBuilder nterfaceStr = new StringBuilder();
         nterfaceStr.Append("using System;" + "\r\n");
+        nterfaceStr.Append("using Stars;" + "\r\n");
         nterfaceStr.Append("public interface IConfig{" + "\r\n");
         nterfaceStr.Append("}");
 

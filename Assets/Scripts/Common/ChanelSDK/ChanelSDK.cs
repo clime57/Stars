@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public class ChanelSDK : MonoBehaviour
+namespace Stars
 {
-    
+    public class ChanelSDK : MonoBehaviour
+    {
+
+    }
 }

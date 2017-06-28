@@ -1,4 +1,5 @@
 ﻿using System;
+using Stars;
 [Serializable]
 public class SampleExcelFile :IConfig{
    private uint _id;

@@ -2,30 +2,34 @@
 using System.Collections;
 using System;
 using System.Reflection;
-//游戏功能管理器
-public class RGGame : Game
+namespace Stars
 {
-    override protected void addObjects()
+    //游戏功能管理器
+    public class RGGame : Game
     {
-        addObject<UIWindowManager>(true, false);
-        addObject<GuideSystem>(true, true);
-        addObject<RaycastObject>(true, true);
-        addObject<TaskManager>(false, true);
-        addObject<RGGameLogic>(true, true);
-    }
-
-    public override void update()
-    {
-        base.update();
-        if (Input.GetKeyUp(KeyCode.Escape))
+        override protected void addObjects()
         {
-            quitcallback();
+            addObject<UIWindowManager>(true, false);
+            addObject<GuideSystem>(true, true);
+            addObject<RaycastObject>(true, true);
+            addObject<TaskManager>(false, true);
+            addObject<RGGameLogic>(true, true);
         }
-    }
 
-    void quitcallback()
-    {
-        Application.Quit();
+        public override void update()
+        {
+            base.update();
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                quitcallback();
+            }
+        }
+
+        void quitcallback()
+        {
+            Application.Quit();
+        }
+
     }
 
 }

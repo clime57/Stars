@@ -2,33 +2,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
-
-public class ApplicationVer
+namespace Stars
 {
-    //初始的程序版本的字符串格式
-    public static string _origenalAppVer = "0.0.0.1";
-    //存取64位整型程序
-    static public UInt64 UInt64Ver
+    public class ApplicationVer
     {
-        get
+        //初始的程序版本的字符串格式
+        public static string _origenalAppVer = "0.0.0.1";
+        //存取64位整型程序
+        static public UInt64 UInt64Ver
         {
-            return 1;
+            get
+            {
+                return 1;
+            }
         }
-    }
-    /// <summary>
-    /// 得到版本字符串
-    /// </summary>
-    static public string StringVer
-    {
-        get
+        /// <summary>
+        /// 得到版本字符串
+        /// </summary>
+        static public string StringVer
         {
-            return _origenalAppVer;
-        }
+            get
+            {
+                return _origenalAppVer;
+            }
 
-        set
-        {
-            _origenalAppVer = value;
+            set
+            {
+                _origenalAppVer = value;
+            }
         }
     }
+
 }
-

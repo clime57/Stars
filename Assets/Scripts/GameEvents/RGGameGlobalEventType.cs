@@ -1,10 +1,14 @@
-/// <summary>
-/// 存放全局事件类型的常量字符串
-/// </summary>
-public class CBGameGlobalEventType
+
+namespace Stars
 {
     /// <summary>
-    /// 示例
+    /// 存放全局事件类型的常量字符串
     /// </summary>
-    public const string GlobalExampleEventType = "GlobalExampleEventType";
+    public class RGGameGlobalEventType
+    {
+        /// <summary>
+        /// 示例
+        /// </summary>
+        public const string GlobalExampleEventType = "GlobalExampleEventType";
+    }
 }

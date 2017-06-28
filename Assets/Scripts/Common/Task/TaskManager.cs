@@ -1,56 +1,59 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-public class TaskManager : GameSubSystem
+namespace Stars
 {
-    override public void update(float time)
+    public class TaskManager : GameSubSystem
     {
-        for(int i =0; i<_updateList.Count; ++i)
-		{
-            if (!(_updateList[i].doUpdate(time)))
-		    {
-			    _removeList.Add(_updateList[i]);
-	    	}
-	    }
-        for(int j =0; j<_removeList.Count; ++j)
-		{
-	        _updateList.Remove(_removeList[j]);
-		   
-	    }
-        _removeList.Clear();
-    }
-
-    public void addTask(Task task)
-    {
-        task.enable();
-        if (task.isUpdating())
+        override public void update(float time)
         {
-            _updateList.Add(task);
+            for (int i = 0; i < _updateList.Count; ++i)
+            {
+                if (!(_updateList[i].doUpdate(time)))
+                {
+                    _removeList.Add(_updateList[i]);
+                }
+            }
+            for (int j = 0; j < _removeList.Count; ++j)
+            {
+                _updateList.Remove(_removeList[j]);
+
+            }
+            _removeList.Clear();
         }
-        _disableList.Add(task);
-    }
 
-    public void removeTask(Task task)
-    {
-        task.disable();
-	    _updateList.Remove(task);
-        _disableList.Remove(task);
-    }
-
-    public void clearAll()
-    {
-        for (int i = 0; i < _disableList.Count; ++i)
+        public void addTask(Task task)
         {
-            _disableList[i].disable();
+            task.enable();
+            if (task.isUpdating())
+            {
+                _updateList.Add(task);
+            }
+            _disableList.Add(task);
         }
-        _disableList.Clear();
-        _updateList.Clear();
-        _removeList.Clear();
-    }
-    
-    List<Task> _updateList = new List<Task>();
-    List<Task> _disableList = new List<Task>();
-    List<Task> _removeList = new List<Task>();
-};
 
+        public void removeTask(Task task)
+        {
+            task.disable();
+            _updateList.Remove(task);
+            _disableList.Remove(task);
+        }
+
+        public void clearAll()
+        {
+            for (int i = 0; i < _disableList.Count; ++i)
+            {
+                _disableList[i].disable();
+            }
+            _disableList.Clear();
+            _updateList.Clear();
+            _removeList.Clear();
+        }
+
+        List<Task> _updateList = new List<Task>();
+        List<Task> _disableList = new List<Task>();
+        List<Task> _removeList = new List<Task>();
+    };
+
+
+}

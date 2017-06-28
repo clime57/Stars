@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+using Stars;
 public class RGStartState : GameState
 {
 	public override string update(float d)

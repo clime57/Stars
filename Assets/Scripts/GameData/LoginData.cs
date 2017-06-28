@@ -1,37 +1,40 @@
 using System;
-public class LoginData
+namespace Stars
 {
-    static private LoginData loginData_;
-    public string userName;
-    public string password;
-    public uint _selectServer;
-    public UInt64 _user_id = 0;
-    public uint _role_id = 0;
-    public Byte[] session = new Byte[32];
-
-    public string _appKey = "";
-    public bool _checkLogin = false;    //判断是否已经登录到了渠道的服务器
-
-    //选择不同的平台
-    public enum CHOOSEDIFFPLATFORM
+    public class LoginData
     {
-        LOCAL
-    }
+        static private LoginData loginData_;
+        public string userName;
+        public string password;
+        public uint _selectServer;
+        public UInt64 _user_id = 0;
+        public uint _role_id = 0;
+        public Byte[] session = new Byte[32];
 
-    public CHOOSEDIFFPLATFORM _platform = CHOOSEDIFFPLATFORM.LOCAL;    //选择不同的平台
+        public string _appKey = "";
+        public bool _checkLogin = false;    //判断是否已经登录到了渠道的服务器
 
-    public LoginData()
-    {
-
-    }
-
-    static public LoginData getInstance()
-    {
-        if (loginData_ == null)
+        //选择不同的平台
+        public enum CHOOSEDIFFPLATFORM
         {
-            loginData_ = new LoginData();
+            LOCAL
         }
-        return loginData_;
+
+        public CHOOSEDIFFPLATFORM _platform = CHOOSEDIFFPLATFORM.LOCAL;    //选择不同的平台
+
+        public LoginData()
+        {
+
+        }
+
+        static public LoginData getInstance()
+        {
+            if (loginData_ == null)
+            {
+                loginData_ = new LoginData();
+            }
+            return loginData_;
+        }
+
     }
-   
 }

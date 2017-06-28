@@ -1,8 +1,11 @@
 
 using UnityEngine;
 using System.Collections;
-
-public class GameController : GameSubSystem
+namespace Stars
 {
+    public class GameController : GameSubSystem
+    {
+
+    }
 
 }

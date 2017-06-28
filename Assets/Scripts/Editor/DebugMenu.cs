@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
-
+using Stars;
 public class DebugMenu 
 {
     [MenuItem("GameTools/Debug/UnloadUnusedMemory")]

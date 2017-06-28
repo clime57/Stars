@@ -1,29 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public class DestroySelf : MonoBehaviour {
-	public int _destroySelfType = 0;
-	public float _destroySelfTime = 1.0f;
-	void Start ()
+namespace Stars
+{
+    public class DestroySelf : MonoBehaviour
     {
-        if (_destroySelfType == 0)
+        public int _destroySelfType = 0;
+        public float _destroySelfTime = 1.0f;
+        void Start()
         {
-            Invoke("InvokeDestroySelf", _destroySelfTime);
+            if (_destroySelfType == 0)
+            {
+                Invoke("InvokeDestroySelf", _destroySelfTime);
+            }
+            else
+            {
+                StartCoroutine("CoroutineDestroySelf");
+            }
         }
-        else
+
+        IEnumerator CoroutineDestroySelf()
         {
-            StartCoroutine("CoroutineDestroySelf");
+            yield return new WaitForSeconds(_destroySelfTime);
+            GameObject.Destroy(gameObject);
         }
-	}
 
-    IEnumerator CoroutineDestroySelf()
-    {
-        yield return new WaitForSeconds(_destroySelfTime);
-        GameObject.Destroy(gameObject);	
-    }
-
-    public void InvokeDestroySelf()
-    {
-        GameObject.Destroy(gameObject);
+        public void InvokeDestroySelf()
+        {
+            GameObject.Destroy(gameObject);
+        }
     }
 }

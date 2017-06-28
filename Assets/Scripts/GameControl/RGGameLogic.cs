@@ -1,33 +1,37 @@
 using UnityEngine;
 using System.Collections;
 
-public class RGGameLogic : GameLogic
+namespace Stars
 {
-    override public void init()
+    public class RGGameLogic : GameLogic
     {
-        this.fsm_ = new FSM_C();
+        override public void init()
+        {
+            this.fsm_ = new FSM_C();
 
-        GameState state = new RGGameState();
-        this.fsm_.addState("Game", state, "");
+            GameState state = new RGGameState();
+            this.fsm_.addState("Game", state, "");
 
-        state = new RGLoginState();
-        this.fsm_.addState("Login", state, "Game");
-        
-        state = new RGTownState();
-        this.fsm_.addState("GameMain_Town", state, "GameMain");
+            state = new RGLoginState();
+            this.fsm_.addState("Login", state, "Game");
 
-        state = new RGInstanceState();
-        this.fsm_.addState("GameMain_Instance", state, "GameMain");
-        
-        state = new RGStartState();
-        this.fsm_.addState("Start", state, "Game");
+            state = new RGTownState();
+            this.fsm_.addState("GameMain_Town", state, "GameMain");
 
-        this.fsm_.init("Start");
+            state = new RGInstanceState();
+            this.fsm_.addState("GameMain_Instance", state, "GameMain");
+
+            state = new RGStartState();
+            this.fsm_.addState("Start", state, "Game");
+
+            this.fsm_.init("Start");
+        }
+
+        static public void backToLogin()
+        {
+            GameLogic gl = Game.getInstance().findObject<GameLogic>();
+            gl.postEvt(new FSMEvent_C("Login_Login"));
+        }
     }
 
-    static public void backToLogin()
-    {
-        GameLogic gl = Game.getInstance().findObject<GameLogic>();
-        gl.postEvt(new FSMEvent_C("Login_Login"));
-    }
 }
